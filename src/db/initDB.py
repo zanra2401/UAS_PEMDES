@@ -37,7 +37,7 @@ cursor.execute("""CREATE TABLE transaksi (
     id_kasir INTEGER NOT NULL,
     tanggal_transaksi TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     jumlah INTEGER NOT NULL,
-    total_harga REAL NOT NULL,
+    total_harga INTEGER NOT NULL,
     discount INTEGER NOT NULL,
     FOREIGN KEY (id_makanan) REFERENCES Makanan (id_makanan),
     FOREIGN KEY (id_pembeli) REFERENCES Pembeli (id_pembeli),

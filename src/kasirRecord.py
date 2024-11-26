@@ -1,17 +1,17 @@
 from PyQt6.QtWidgets import QDialog
 from PyQt6.QtSql import QSqlDatabase, QSqlQueryModel, QSqlQuery
 from datetime import datetime
-from src.ui.transaksiRecord_ui import Ui_TransaksiRecord
+from src.ui.kasirrecord_ui import Ui_Dialog
 from src.errorDialog import ErrorDialog
 import os
 
 
-class TransaksiRecord(Ui_TransaksiRecord, QDialog):
+class KasirRecord(Ui_Dialog, QDialog):
     def __init__(self, recordNo, db):
         super().__init__()
         self.setupUi(self)
         self.recordNo = recordNo
-        self.setWindowTitle("Transaksi Records")
+        self.setWindowTitle("Kasir Record")
         self.db = db
         self.db.open()
         self.model = QSqlQueryModel()
@@ -26,17 +26,11 @@ class TransaksiRecord(Ui_TransaksiRecord, QDialog):
         
 
     def displayRecord(self):
-        self.model.setQuery(f"SELECT t.id_transaksi, m.nama_makanan, t.jumlah ,m.harga, p.nama_pembeli, k.nama_kasir, t.total_harga, t.discount FROM transaksi AS t, pembeli AS p, kasir AS k, makanan AS m WHERE t.id_pembeli = p.id_pembeli AND t.id_makanan = m.id_makanan AND t.id_kasir = k.id_kasir")
+        self.model.setQuery("SELECT * FROM kasir")
         self.record = self.model.record(self.recordNo)
-        print(self.record.field("id_transaksi").value())
-        self.ID.setText(str(self.record.value("id_transaksi")))
-        self.Maknan.setText(str(self.record.value("nama_makanan")))
-        self.Pembeli.setText(str(self.record.value("nama_pembeli")))
-        self.Kasir.setText(str(self.record.value("nama_kasir")))
-        self.Jumlah.setText(str(self.record.value("jumlah")))
-        self.Total.setText("Rp. " + str(int(self.record.value("total_harga"))))
-        self.Discount.setText(str(self.record.value("discount")))
-        self.Tanggal.setText(str(self.record.value("tanggal_transaksi")))
+        self.idkasir.setText(str(self.record.value("id_kasir")))
+        self.namakasir.setText(str(self.record.value("nama_kasir")))
+        self.shift.setText(str(self.record.value("shift")))
         
     
     def prevRecord(self):

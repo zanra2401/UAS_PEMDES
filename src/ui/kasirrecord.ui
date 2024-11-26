@@ -1,131 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>842</width>
-    <height>648</height>
+    <width>504</width>
+    <height>390</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>821</width>
-     <height>631</height>
+     <width>491</width>
+     <height>369</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="sizeConstraint">
-     <enum>QLayout::SetDefaultConstraint</enum>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
     </property>
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="kasirrecord">
       <property name="font">
        <font>
         <pointsize>28</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Transaksi</string>
+       <string>KASIR RECORD</string>
       </property>
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QLineEdit" name="lineEdit_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="cursorPosition">
-         <number>0</number>
-        </property>
-        <property name="placeholderText">
-         <string>NAMA PELANGGAN</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="placeholderText">
-         <string>NAMA MAKANAN</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="FILTER">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
+       <widget class="QLabel" name="labelidkasir">
         <property name="text">
-         <string>FILTER</string>
+         <string>ID KASIR</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="idkasir">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelnamakasir">
+        <property name="text">
+         <string>NAMA KASIR</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="namakasir">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelshift">
+        <property name="text">
+         <string>SHIFT</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="shift">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
         </property>
        </widget>
       </item>
      </layout>
     </item>
     <item>
-     <widget class="QTableView" name="tableView">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetFixedSize</enum>
       </property>
-      <attribute name="horizontalHeaderStretchLastSection">
-       <bool>true</bool>
-      </attribute>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="SHOW_RECORD">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+      <property name="leftMargin">
+       <number>0</number>
       </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>SHOW RECORD</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <widget class="QPushButton" name="UPDATE">
+       <widget class="QPushButton" name="FIRST">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -133,12 +119,12 @@
          </size>
         </property>
         <property name="text">
-         <string>UPDATE</string>
+         <string>FIRST</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="CANCEL">
+       <widget class="QPushButton" name="PREV">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -146,12 +132,12 @@
          </size>
         </property>
         <property name="text">
-         <string>CANCEL</string>
+         <string>PREVIOUS</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="ADD">
+       <widget class="QPushButton" name="NEXT">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -159,12 +145,12 @@
          </size>
         </property>
         <property name="text">
-         <string>ADD</string>
+         <string>NEXT</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="DELETE">
+       <widget class="QPushButton" name="LAST">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -172,7 +158,7 @@
          </size>
         </property>
         <property name="text">
-         <string>DELETE</string>
+         <string>LAST</string>
         </property>
        </widget>
       </item>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Kasir</class>
+ <widget class="QWidget" name="Kasir">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>842</width>
-    <height>648</height>
+    <width>610</width>
+    <height>591</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,54 +16,29 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>821</width>
-     <height>631</height>
+     <x>0</x>
+     <y>0</y>
+     <width>591</width>
+     <height>571</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="sizeConstraint">
-     <enum>QLayout::SetDefaultConstraint</enum>
-    </property>
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="kasir">
       <property name="font">
        <font>
         <pointsize>28</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Transaksi</string>
+       <string>Kasir</string>
       </property>
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLineEdit" name="lineEdit_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="cursorPosition">
-         <number>0</number>
-        </property>
-        <property name="placeholderText">
-         <string>NAMA PELANGGAN</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="idkasir">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -71,12 +46,25 @@
          </size>
         </property>
         <property name="placeholderText">
-         <string>NAMA MAKANAN</string>
+         <string>ID KASIR</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="FILTER">
+       <widget class="QLineEdit" name="namakasir">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="placeholderText">
+         <string>NAMA KASIR</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="filter">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -92,11 +80,11 @@
     </item>
     <item>
      <widget class="QTableView" name="tableView">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
       </property>
       <attribute name="horizontalHeaderStretchLastSection">
        <bool>true</bool>
@@ -105,12 +93,6 @@
     </item>
     <item>
      <widget class="QPushButton" name="SHOW_RECORD">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -123,7 +105,7 @@
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="UPDATE">
         <property name="minimumSize">
@@ -151,19 +133,6 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="ADD">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>ADD</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="DELETE">
         <property name="minimumSize">
          <size>
@@ -173,6 +142,19 @@
         </property>
         <property name="text">
          <string>DELETE</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ADD">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>ADD</string>
         </property>
        </widget>
       </item>
