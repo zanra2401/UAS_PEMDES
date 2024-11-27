@@ -1,3 +1,12 @@
+# KELAS PEMROGRAMAN DESKTOP IF3A
+# NAMA ANGGOTA KELOMPOK
+# 230411100087_Zanuar Rikza Aditiya
+# 230411100070_Muhammad Adzin Naufal Ansori
+# 230411100083_Muhammad Syaifudin Zuhri
+# 230411100034_Zulfikri Assiddiqie
+# 230411100089_Dina Puspita Sari
+# 230411100187_Malika Aulia Putri
+
 from src.transaksi import Transaksi
 from src.pembeli import Pembeli
 from src.kasir import Kasir
@@ -27,8 +36,7 @@ class MainWindow(QMainWindow):
         tab.addTab(self.transaksi_widget, "Transaksi")
         tab.addTab(self.pembeli, "Pembeli")
         tab.addTab(self.kasir, "Kasir")
-        tab.addTab(self.makanan, "Makanan")
-        
+        tab.addTab(self.makanan, "Makanan")    
         return tab
 
     def refreshTransaksi(self):

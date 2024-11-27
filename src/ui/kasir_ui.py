@@ -22,6 +22,8 @@ class Ui_Kasir(object):
         self.kasir = QtWidgets.QLabel(parent=self.verticalLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(28)
+        font.setBold(True)
+        font.setWeight(75)
         self.kasir.setFont(font)
         self.kasir.setObjectName("kasir")
         self.verticalLayout.addWidget(self.kasir)
@@ -29,14 +31,23 @@ class Ui_Kasir(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.idkasir = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
         self.idkasir.setMinimumSize(QtCore.QSize(0, 40))
+        self.idkasir.setStyleSheet("font-weight: bold;")
         self.idkasir.setObjectName("idkasir")
         self.horizontalLayout_2.addWidget(self.idkasir)
         self.namakasir = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
         self.namakasir.setMinimumSize(QtCore.QSize(0, 40))
+        self.namakasir.setStyleSheet("font-weight: bold;")
         self.namakasir.setObjectName("namakasir")
         self.horizontalLayout_2.addWidget(self.namakasir)
         self.filter = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.filter.setMinimumSize(QtCore.QSize(0, 40))
+        self.filter.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.filter.setObjectName("filter")
         self.horizontalLayout_2.addWidget(self.filter)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -47,24 +58,59 @@ class Ui_Kasir(object):
         self.verticalLayout.addWidget(self.tableView)
         self.SHOW_RECORD = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.SHOW_RECORD.setMinimumSize(QtCore.QSize(0, 40))
+        self.SHOW_RECORD.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.SHOW_RECORD.setObjectName("SHOW_RECORD")
         self.verticalLayout.addWidget(self.SHOW_RECORD)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.UPDATE = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.UPDATE.setMinimumSize(QtCore.QSize(0, 40))
+        self.UPDATE.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.UPDATE.setObjectName("UPDATE")
         self.horizontalLayout.addWidget(self.UPDATE)
         self.CANCEL = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.CANCEL.setMinimumSize(QtCore.QSize(0, 40))
+        self.CANCEL.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.CANCEL.setObjectName("CANCEL")
         self.horizontalLayout.addWidget(self.CANCEL)
         self.DELETE = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.DELETE.setMinimumSize(QtCore.QSize(0, 40))
+        self.DELETE.setStyleSheet("background: #D91656;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.DELETE.setObjectName("DELETE")
         self.horizontalLayout.addWidget(self.DELETE)
         self.ADD = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.ADD.setMinimumSize(QtCore.QSize(0, 40))
+        self.ADD.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.ADD.setObjectName("ADD")
         self.horizontalLayout.addWidget(self.ADD)
         self.verticalLayout.addLayout(self.horizontalLayout)

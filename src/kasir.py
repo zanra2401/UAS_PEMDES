@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QWidget
+from PyQt6.QtWidgets import QWidget, QHeaderView
 from PyQt6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from src.ui.kasir_ui import Ui_Kasir
 from src.kasirRecord import KasirRecord
@@ -24,6 +24,8 @@ class Kasir(Ui_Kasir, QWidget):
         self.model.setTable("kasir")
 
         self.readOnly()
+        self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Interactive)
+
         self.tableView.setModel(self.model)
         self.model.select()
 
@@ -64,9 +66,9 @@ class Kasir(Ui_Kasir, QWidget):
         no = self.tableView.currentIndex().row()
         self.displayTable()
         if self.model.rowCount() - 1 < no or no == -1:
-            transaksiRecord = KasirRecord(0, self.db)
+            transaksiRecord = KasirRecord(0, self.db, self)
         else:
-            transaksiRecord = KasirRecord(self.tableView.currentIndex().row(), self.db)
+            transaksiRecord = KasirRecord(no, self.db, self)
         
         transaksiRecord.exec()  
     

@@ -23,6 +23,8 @@ class Ui_Form(object):
         self.judul.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setPointSize(28)
+        font.setBold(True)
+        font.setWeight(75)
         self.judul.setFont(font)
         self.judul.setObjectName("judul")
         self.verticalLayout_4.addWidget(self.judul)
@@ -30,14 +32,23 @@ class Ui_Form(object):
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         self.namamakanan = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
         self.namamakanan.setMinimumSize(QtCore.QSize(0, 40))
+        self.namamakanan.setStyleSheet("font-weight: bold;")
         self.namamakanan.setObjectName("namamakanan")
         self.horizontalLayout_7.addWidget(self.namamakanan)
         self.harga = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
         self.harga.setMinimumSize(QtCore.QSize(0, 40))
+        self.harga.setStyleSheet("font-weight: bold;")
         self.harga.setObjectName("harga")
         self.horizontalLayout_7.addWidget(self.harga)
         self.filter = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.filter.setMinimumSize(QtCore.QSize(0, 40))
+        self.filter.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.filter.setObjectName("filter")
         self.horizontalLayout_7.addWidget(self.filter)
         self.verticalLayout_4.addLayout(self.horizontalLayout_7)
@@ -50,6 +61,13 @@ class Ui_Form(object):
         self.verticalLayout_5.addWidget(self.tableView)
         self.SHOW_RECORD = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.SHOW_RECORD.setMinimumSize(QtCore.QSize(0, 40))
+        self.SHOW_RECORD.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.SHOW_RECORD.setObjectName("SHOW_RECORD")
         self.verticalLayout_5.addWidget(self.SHOW_RECORD)
         self.verticalLayout_4.addLayout(self.verticalLayout_5)
@@ -57,18 +75,46 @@ class Ui_Form(object):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.UPDATE = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.UPDATE.setMinimumSize(QtCore.QSize(0, 40))
+        self.UPDATE.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.UPDATE.setObjectName("UPDATE")
         self.horizontalLayout_4.addWidget(self.UPDATE)
         self.CANCEL = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.CANCEL.setMinimumSize(QtCore.QSize(0, 40))
+        self.CANCEL.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.CANCEL.setObjectName("CANCEL")
         self.horizontalLayout_4.addWidget(self.CANCEL)
         self.DELETE = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.DELETE.setMinimumSize(QtCore.QSize(0, 40))
+        self.DELETE.setStyleSheet("background: #D91656;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.DELETE.setObjectName("DELETE")
         self.horizontalLayout_4.addWidget(self.DELETE)
         self.ADD = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.ADD.setMinimumSize(QtCore.QSize(0, 40))
+        self.ADD.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.ADD.setObjectName("ADD")
         self.horizontalLayout_4.addWidget(self.ADD)
         self.verticalLayout_4.addLayout(self.horizontalLayout_4)

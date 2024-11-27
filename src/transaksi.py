@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QWidget, QStyledItemDelegate, QHeaderView
 from PyQt6.QtSql import QSqlDatabase, QSqlTableModel, QSqlRelationalTableModel, QSqlRelation, QSqlQuery, QSqlRecord
-from src.ui.transaksiUI import Ui_Form
+from src.ui.transaksi_ui import Ui_Form
 from src.readOnly import ReadOnlyDelegate
 from src.transaksiRecord import TransaksiRecord
 from src.errorDialog import ErrorDialog
@@ -77,9 +77,9 @@ class Transaksi(Ui_Form, QWidget):
         no = self.tableView.currentIndex().row()
         self.displayTable()
         if self.model.rowCount() - 1 < no or no == -1:
-            transaksiRecord = TransaksiRecord(0, self.db)
+            transaksiRecord = TransaksiRecord(0, self.db, self)
         else:
-            transaksiRecord = TransaksiRecord(no, self.db)
+            transaksiRecord = TransaksiRecord(no, self.db, self)
         
         transaksiRecord.exec()
     
@@ -90,8 +90,12 @@ class Transaksi(Ui_Form, QWidget):
     def cancel(self):
         self.model.revertAll()
     
-    def update(self):
-        record = self.model.record(self.tableView.currentIndex().row())
+    def update(self, recordNo = None):
+        if recordNo != None:
+            record = self.model.record(recordNo)
+        else:
+            record = self.model.record(self.tableView.currentIndex().row())
+
         query = QSqlQuery(self.db)
         currentTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         query_id_pembeli = f"SELECT id_pembeli FROM pembeli WHERE nama_pembeli = '{record.value("nama_pembeli")}'"
@@ -128,6 +132,8 @@ class Transaksi(Ui_Form, QWidget):
                 VALUES('{id_pembeli}', '{id_makanan}', '{id_kasir}', '{jumlah}', '{currentTime}', '{total_harga}', '{discount}')
             """)
         else:
+            print(record.value("nama_makanan"))
+
             id_transaksi = record.value("id_transaksi")
             query.exec(f"""
                 UPDATE transaksi 

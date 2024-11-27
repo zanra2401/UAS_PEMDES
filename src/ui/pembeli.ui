@@ -34,6 +34,8 @@
       <property name="font">
        <font>
         <pointsize>28</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="text">
@@ -51,6 +53,9 @@
           <height>40</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">font-weight: bold;</string>
+        </property>
         <property name="placeholderText">
          <string>NAMA PEMBELI</string>
         </property>
@@ -63,6 +68,9 @@
           <width>0</width>
           <height>40</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-weight: bold;</string>
         </property>
         <property name="text">
          <string/>
@@ -79,6 +87,15 @@
           <width>0</width>
           <height>40</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: #22177A;
+color: white;
+font-weight: bold;
+border: none;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;</string>
         </property>
         <property name="text">
          <string>FILTER</string>
@@ -102,6 +119,15 @@
         <height>40</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background: #22177A;
+color: white;
+font-weight: bold;
+border: none;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;</string>
+      </property>
       <property name="text">
        <string>SHOW RECORD</string>
       </property>
@@ -117,6 +143,15 @@
           <height>40</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background: #22177A;
+color: white;
+font-weight: bold;
+border: none;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;</string>
+        </property>
         <property name="text">
          <string>UPDATE</string>
         </property>
@@ -129,6 +164,15 @@
           <width>0</width>
           <height>40</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: #22177A;
+color: white;
+font-weight: bold;
+border: none;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;</string>
         </property>
         <property name="text">
          <string>CANCEL</string>
@@ -143,6 +187,15 @@
           <height>40</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background: #D91656;
+color: white;
+font-weight: bold;
+border: none;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;</string>
+        </property>
         <property name="text">
          <string>DELETE</string>
         </property>
@@ -155,6 +208,15 @@
           <width>0</width>
           <height>40</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: #22177A;
+color: white;
+font-weight: bold;
+border: none;
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 4px;</string>
         </property>
         <property name="text">
          <string>ADD</string>

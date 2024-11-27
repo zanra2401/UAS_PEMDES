@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QWidget
+from PyQt6.QtWidgets import QWidget, QHeaderView
 from PyQt6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from src.ui.makanan_ui import Ui_Form
 from src.readOnly import ReadOnlyDelegate
@@ -34,6 +34,8 @@ class Makanan(Ui_Form, QWidget):
         self.ADD.clicked.connect(self.addData)
         self.DELETE.clicked.connect(self.delete)
         self.SHOW_RECORD.clicked.connect(self.showRecord)
+        self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Interactive)
+
 
 
     def updateFilter(self):
@@ -66,9 +68,9 @@ class Makanan(Ui_Form, QWidget):
         no = self.tableView.currentIndex().row()
         self.displayTable()
         if self.model.rowCount() - 1 < no or no == -1:
-            transaksiRecord = MakananRecord(0, self.db)
+            transaksiRecord = MakananRecord(0, self.db, self)
         else:
-            transaksiRecord = MakananRecord(self.tableView.currentIndex().row(), self.db)
+            transaksiRecord = MakananRecord(no, self.db, self)
         
         transaksiRecord.exec()  
     

@@ -29,6 +29,8 @@ class Ui_Dialog(object):
         self.judul.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setPointSize(24)
+        font.setBold(True)
+        font.setWeight(75)
         self.judul.setFont(font)
         self.judul.setObjectName("judul")
         self.MainLayout.addWidget(self.judul)
@@ -67,7 +69,7 @@ class Ui_Dialog(object):
         self.labelnama.setObjectName("labelnama")
         self.verticalLayout_13.addWidget(self.labelnama)
         self.NAMA = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
-        self.NAMA.setEnabled(False)
+        self.NAMA.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -88,7 +90,7 @@ class Ui_Dialog(object):
         self.labelharga.setObjectName("labelharga")
         self.verticalLayout_12.addWidget(self.labelharga)
         self.HARGA = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
-        self.HARGA.setEnabled(False)
+        self.HARGA.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -98,6 +100,17 @@ class Ui_Dialog(object):
         self.HARGA.setObjectName("HARGA")
         self.verticalLayout_12.addWidget(self.HARGA)
         self.MainLayout.addLayout(self.verticalLayout_12)
+        self.UPDATE = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.UPDATE.setMinimumSize(QtCore.QSize(0, 40))
+        self.UPDATE.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
+        self.UPDATE.setObjectName("UPDATE")
+        self.MainLayout.addWidget(self.UPDATE)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.FIRST = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
@@ -107,6 +120,13 @@ class Ui_Dialog(object):
         sizePolicy.setHeightForWidth(self.FIRST.sizePolicy().hasHeightForWidth())
         self.FIRST.setSizePolicy(sizePolicy)
         self.FIRST.setMinimumSize(QtCore.QSize(0, 40))
+        self.FIRST.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.FIRST.setObjectName("FIRST")
         self.horizontalLayout_2.addWidget(self.FIRST)
         self.PREV = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
@@ -116,6 +136,13 @@ class Ui_Dialog(object):
         sizePolicy.setHeightForWidth(self.PREV.sizePolicy().hasHeightForWidth())
         self.PREV.setSizePolicy(sizePolicy)
         self.PREV.setMinimumSize(QtCore.QSize(0, 40))
+        self.PREV.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.PREV.setObjectName("PREV")
         self.horizontalLayout_2.addWidget(self.PREV)
         self.NEXT = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
@@ -125,6 +152,13 @@ class Ui_Dialog(object):
         sizePolicy.setHeightForWidth(self.NEXT.sizePolicy().hasHeightForWidth())
         self.NEXT.setSizePolicy(sizePolicy)
         self.NEXT.setMinimumSize(QtCore.QSize(0, 40))
+        self.NEXT.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.NEXT.setObjectName("NEXT")
         self.horizontalLayout_2.addWidget(self.NEXT)
         self.LAST = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
@@ -134,6 +168,13 @@ class Ui_Dialog(object):
         sizePolicy.setHeightForWidth(self.LAST.sizePolicy().hasHeightForWidth())
         self.LAST.setSizePolicy(sizePolicy)
         self.LAST.setMinimumSize(QtCore.QSize(0, 40))
+        self.LAST.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.LAST.setObjectName("LAST")
         self.horizontalLayout_2.addWidget(self.LAST)
         self.MainLayout.addLayout(self.horizontalLayout_2)
@@ -148,6 +189,7 @@ class Ui_Dialog(object):
         self.labelid.setText(_translate("Dialog", "Makanan ID:"))
         self.labelnama.setText(_translate("Dialog", "Nama Makanan:"))
         self.labelharga.setText(_translate("Dialog", "Harga:"))
+        self.UPDATE.setText(_translate("Dialog", "UPDATE"))
         self.FIRST.setText(_translate("Dialog", "FIRST"))
         self.PREV.setText(_translate("Dialog", "PREVIOUS"))
         self.NEXT.setText(_translate("Dialog", "NEXT"))

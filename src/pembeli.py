@@ -18,10 +18,11 @@ class Pembeli(Ui_Form, QWidget):
         self.db.setDatabaseName(os.path.join(os.path.dirname(__file__), "db/pemesananMakanan.sqlite"))
         self.db.open()
 
-        self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Interactive)
         self.readOnly()
         self.model = QSqlTableModel(db=self.db)
         self.model.setTable("pembeli")
+        self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Interactive)
+
         self.displayTable()
 
         self.showrecord.clicked.connect(self.showRecord)
@@ -62,9 +63,9 @@ class Pembeli(Ui_Form, QWidget):
         no = self.tableView.currentIndex().row()
         self.displayTable()
         if self.model.rowCount() - 1 < no or no == -1:
-            transaksiRecord = PembeliRecord(0)
+            transaksiRecord = PembeliRecord(0, self.db, self)
         else:
-            transaksiRecord = PembeliRecord(self.tableView.currentIndex().row())
+            transaksiRecord = PembeliRecord(no, self.db, self.parent)
         
         transaksiRecord.exec()  
     

@@ -28,6 +28,8 @@ class Ui_TransaksiRecord(object):
         self.label.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(24)
+        font.setBold(True)
+        font.setWeight(75)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.MainLayout.addWidget(self.label)
@@ -64,15 +66,15 @@ class Ui_TransaksiRecord(object):
         self.label_5.setSizePolicy(sizePolicy)
         self.label_5.setObjectName("label_5")
         self.verticalLayout_13.addWidget(self.label_5)
-        self.Maknan = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
-        self.Maknan.setEnabled(True)
+        self.Makanan = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
+        self.Makanan.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Maknan.sizePolicy().hasHeightForWidth())
-        self.Maknan.setSizePolicy(sizePolicy)
-        self.Maknan.setObjectName("Maknan")
-        self.verticalLayout_13.addWidget(self.Maknan)
+        sizePolicy.setHeightForWidth(self.Makanan.sizePolicy().hasHeightForWidth())
+        self.Makanan.setSizePolicy(sizePolicy)
+        self.Makanan.setObjectName("Makanan")
+        self.verticalLayout_13.addWidget(self.Makanan)
         self.MainLayout.addLayout(self.verticalLayout_13)
         self.verticalLayout_12 = QtWidgets.QVBoxLayout()
         self.verticalLayout_12.setObjectName("verticalLayout_12")
@@ -191,6 +193,17 @@ class Ui_TransaksiRecord(object):
         self.Discount.setObjectName("Discount")
         self.verticalLayout_16.addWidget(self.Discount)
         self.MainLayout.addLayout(self.verticalLayout_16)
+        self.UPDATE = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.UPDATE.setMinimumSize(QtCore.QSize(0, 40))
+        self.UPDATE.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
+        self.UPDATE.setObjectName("UPDATE")
+        self.MainLayout.addWidget(self.UPDATE)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.FIRST = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
@@ -199,6 +212,13 @@ class Ui_TransaksiRecord(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.FIRST.sizePolicy().hasHeightForWidth())
         self.FIRST.setSizePolicy(sizePolicy)
+        self.FIRST.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.FIRST.setObjectName("FIRST")
         self.horizontalLayout_2.addWidget(self.FIRST)
         self.PREV = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
@@ -207,6 +227,13 @@ class Ui_TransaksiRecord(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.PREV.sizePolicy().hasHeightForWidth())
         self.PREV.setSizePolicy(sizePolicy)
+        self.PREV.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.PREV.setObjectName("PREV")
         self.horizontalLayout_2.addWidget(self.PREV)
         self.NEXT = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
@@ -215,6 +242,13 @@ class Ui_TransaksiRecord(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.NEXT.sizePolicy().hasHeightForWidth())
         self.NEXT.setSizePolicy(sizePolicy)
+        self.NEXT.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.NEXT.setObjectName("NEXT")
         self.horizontalLayout_2.addWidget(self.NEXT)
         self.LAST = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
@@ -223,6 +257,13 @@ class Ui_TransaksiRecord(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.LAST.sizePolicy().hasHeightForWidth())
         self.LAST.setSizePolicy(sizePolicy)
+        self.LAST.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.LAST.setObjectName("LAST")
         self.horizontalLayout_2.addWidget(self.LAST)
         self.MainLayout.addLayout(self.horizontalLayout_2)
@@ -242,6 +283,7 @@ class Ui_TransaksiRecord(object):
         self.label_8.setText(_translate("TransaksiRecord", "Tanggal Pembelian:"))
         self.label_9.setText(_translate("TransaksiRecord", "Jumlah Pembelian:"))
         self.label_11.setText(_translate("TransaksiRecord", "Discount:"))
+        self.UPDATE.setText(_translate("TransaksiRecord", "UPDATE"))
         self.FIRST.setText(_translate("TransaksiRecord", "First"))
         self.PREV.setText(_translate("TransaksiRecord", "Previous"))
         self.NEXT.setText(_translate("TransaksiRecord", "Next"))

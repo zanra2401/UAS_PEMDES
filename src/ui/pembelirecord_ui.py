@@ -28,6 +28,8 @@ class Ui_Dialog(object):
         self.record.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setPointSize(28)
+        font.setBold(True)
+        font.setWeight(75)
         self.record.setFont(font)
         self.record.setObjectName("record")
         self.verticalLayout.addWidget(self.record)
@@ -44,6 +46,7 @@ class Ui_Dialog(object):
         self.labelID.setObjectName("labelID")
         self.verticalLayout_2.addWidget(self.labelID)
         self.IDPEMBELI = QtWidgets.QLineEdit(parent=self.verticalLayoutWidget)
+        self.IDPEMBELI.setEnabled(False)
         self.IDPEMBELI.setMinimumSize(QtCore.QSize(0, 40))
         self.IDPEMBELI.setObjectName("IDPEMBELI")
         self.verticalLayout_2.addWidget(self.IDPEMBELI)
@@ -73,22 +76,61 @@ class Ui_Dialog(object):
         self.nomortlp.setMinimumSize(QtCore.QSize(0, 40))
         self.nomortlp.setObjectName("nomortlp")
         self.verticalLayout_2.addWidget(self.nomortlp)
+        self.UPDATE = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
+        self.UPDATE.setMinimumSize(QtCore.QSize(0, 40))
+        self.UPDATE.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
+        self.UPDATE.setObjectName("UPDATE")
+        self.verticalLayout_2.addWidget(self.UPDATE)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.first = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.first.setMinimumSize(QtCore.QSize(0, 40))
+        self.first.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.first.setObjectName("first")
         self.horizontalLayout.addWidget(self.first)
         self.previous = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.previous.setMinimumSize(QtCore.QSize(0, 40))
+        self.previous.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.previous.setObjectName("previous")
         self.horizontalLayout.addWidget(self.previous)
         self.next = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.next.setMinimumSize(QtCore.QSize(0, 40))
+        self.next.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.next.setObjectName("next")
         self.horizontalLayout.addWidget(self.next)
         self.last = QtWidgets.QPushButton(parent=self.verticalLayoutWidget)
         self.last.setMinimumSize(QtCore.QSize(0, 40))
+        self.last.setStyleSheet("background: #22177A;\n"
+"color: white;\n"
+"font-weight: bold;\n"
+"border: none;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"border-radius: 4px;")
         self.last.setObjectName("last")
         self.horizontalLayout.addWidget(self.last)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
@@ -104,6 +146,7 @@ class Ui_Dialog(object):
         self.labelID.setText(_translate("Dialog", "ID PEMBELI:"))
         self.labelnama.setText(_translate("Dialog", "NAMA PEMBELI:"))
         self.labelnomortlp.setText(_translate("Dialog", "NOMOR TELEPON:"))
+        self.UPDATE.setText(_translate("Dialog", "UPDATE"))
         self.first.setText(_translate("Dialog", "FIRST"))
         self.previous.setText(_translate("Dialog", "PREVIOUS"))
         self.next.setText(_translate("Dialog", "NEXT"))

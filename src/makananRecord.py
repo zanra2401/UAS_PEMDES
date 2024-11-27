@@ -7,9 +7,10 @@ import os
 
 
 class MakananRecord(Ui_Dialog, QDialog):
-    def __init__(self, recordNo, db):
+    def __init__(self, recordNo, db, parent):
         super().__init__()
         self.setupUi(self)
+        self.parent = parent
         self.recordNo = recordNo
         self.setWindowTitle("Makanan Record")
         self.db = db
@@ -22,7 +23,7 @@ class MakananRecord(Ui_Dialog, QDialog):
         self.NEXT.clicked.connect(self.nextRecord)
         self.FIRST.clicked.connect(self.firstRecord)
         self.LAST.clicked.connect(self.lastRecord)
-        # self.UPDATE.clicked.connect(self.update)
+        self.UPDATE.clicked.connect(self.update)
         
 
     def displayRecord(self):
@@ -30,7 +31,7 @@ class MakananRecord(Ui_Dialog, QDialog):
         self.record = self.model.record(self.recordNo)
         self.ID.setText(str(self.record.value("id_makanan")))
         self.NAMA.setText(str(self.record.value("nama_makanan")))
-        self.HARGA.setText(str(self.record.value("harga")))
+        self.HARGA.setText(str(int(self.record.value("harga"))))
         
     
     def prevRecord(self):
@@ -58,55 +59,90 @@ class MakananRecord(Ui_Dialog, QDialog):
         self.displayRecord()
 
 
-    # def update(self):
-    #     record = self.model.record(self.recordNo)
-    #     query = QSqlQuery()
-    #     currentTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    #     query_id_pembeli = f"SELECT id_pembeli FROM pembeli WHERE nama_pembeli = '{record.value("nama_pembeli")}'"
-    #     query_id_makanan = f"SELECT id_makanan FROM makanan WHERE nama_makanan = '{record.value("nama_makanan")}'"
-    #     query_id_kasir = f"SELECT id_kasir FROM kasir WHERE nama_kasir = '{record.value("nama_kasir")}'"
-    #     id_pembeli = self.fetchOneQuery(query_id_pembeli, query)
-    #     id_makanan = self.fetchOneQuery(query_id_makanan, query)
-    #     id_kasir = self.fetchOneQuery(query_id_kasir, query)
-    #     if not len(record.value("nama_makanan")) or not len(record.value("nama_pembeli")) or not len(record.value("nama_kasir")) or not record.value("jumlah"):
-    #         errorDialog = ErrorDialog("Data Tidak Valid")
-    #         errorDialog.exec()
-    #         return
-    #     else:
-    #         if id_pembeli == None:
-    #             errorDialog = ErrorDialog("nama pembeli tidak ada dalam daftar, lihat tab pembeli untuk melihat daftar pembeli")
-    #             errorDialog.exec()
-    #             return
-    #         elif id_makanan == None:
-    #             errorDialog = ErrorDialog("makanan tidak ada dalam daftar, lihat tab makanan untuk melihat daftar makanan")
-    #             errorDialog.exec()
-    #             return
-    #         elif id_kasir == None:
-    #             errorDialog = ErrorDialog("nama kasir tidak ada dalam daftar, lihat tab kasir untuk melihat daftar kasir")
-    #             errorDialog.exec()
-    #             return
-            
-    #     jumlah = int(record.value("jumlah"))
-    #     discount = int(record.value("discount"))
-    #     harga_makanan = int(self.fetchOneQuery(f"SELECT harga FROM makanan WHERE nama_makanan = '{record.value("nama_makanan")}'", query))
-    #     total_harga = harga_makanan * jumlah - ((harga_makanan * jumlah) * (int(discount)/100))
-    #     id_transaksi = record.value("id_transaksi")
-    #     query.exec(f"""
-    #         UPDATE transaksi 
-    #         SET id_pembeli = '{id_pembeli}', id_makanan = '{id_makanan}', id_kasir = '{id_kasir}', jumlah = '{jumlah}', tanggal_transaksi = '{currentTime}', total_harga = '{total_harga}', discount = '{discount}'
-    #         WHERE id_transaksi = '{self.recordNo}'
-    #     """)
-    #     # self.refresh()
-    #     self.displayRecord()      
-    #     # self.displayTable()
+    def updateButton(self):
+        record = self.model.record(self.tableView.currentIndex().row())
+        query = QSqlQuery()
+
+        if len(record.value("nama_kasir")) < 1 or len(record.value("shift")) < 1:
+            errorDialog = ErrorDialog("Masukan Semua Data Yang di butuhkan")
+            errorDialog.exec()
+            return
+
+        nama_kasir = record.value("nama_kasir")
+        shift = record.value("shift")
+
+        if not record.value("id_kasir"):
+            query.exec(f"""
+                INSERT INTO kasir(nama_kasir, shift) VALUES('{nama_kasir}', '{shift}')
+            """)
+        else:
+            id_kasir = record.value("id_kasir")
+
+            # exist = self.fetchOneQuery(f"SELECT * FROM transaksi WHERE id_pembeli = '{id_kasir}'", query)
+            # if exist != None:
+            #     errorDialog = ErrorDialog("tidak bisa mengedit data, Data ini di gunakan di table transaksi")
+            #     errorDialog.exec()
+            #     return
+
+            query.exec(f"""
+                UPDATE kasir
+                SET nama_kasir = '{nama_kasir}', shift = '{shift}'
+                WHERE id_kasir = '{id_kasir}'
+            """)
+            self.refresh()
+        self.displayTable()
+    
+    def delete(self):
+        if self.tableView.currentIndex().row() == -1:
+            return
+        
+        query = QSqlQuery()
+        id_kasir = self.model.record(self.tableView.currentIndex().row()).value("id_kasir")
+        exist = self.fetchOneQuery(f"SELECT * FROM transaksi WHERE id_pembeli = '{id_kasir}'", query)
+        if exist != None:
+            errorDialog = ErrorDialog("tidak bisa menghapus data, Data ini di gunakan di table transaksi")
+            errorDialog.exec()
+            return
+
+        query.exec(f"DELETE FROM kasir WHERE id_kasir = '{id_kasir}'")
+        self.displayTable()
+    
+    def cancel(self):
+        self.model.revertAll()
+    
+     
+    def update(self):
+        query = QSqlQuery(self.db)
+
+        if len(self.NAMA.text()) < 1 or len(self.HARGA.text()) < 1:
+            errorDialog = ErrorDialog("Masukan Semua Data Yang di butuhkan")
+            errorDialog.exec()
+            return
+
+        nama_makanan = self.NAMA.text()
+        harga = int(self.HARGA.text())
+        query.exec(f"""
+                UPDATE makanan
+                SET nama_makanan = '{nama_makanan}', harga = '{harga}'
+                WHERE id_makanan = {int(self.ID.text())}
+            """)
+
+        self.refresh()
+        self.parent.refresh()
+        self.parent.displayTable()
+        self.displayRecord()      
     
     
     
-    # def fetchOneQuery(self, query_str, query):
-    #     query.exec(query_str)
-    #     query.next()
-    #     return query.value(0)
+    def fetchOneQuery(self, query_str, query):
+        query.exec(query_str)
+        query.next()
+        return query.value(0)
     
-    # def refresh(self):
-    #     self.model = QSqlQueryModel()
-    #     self.model.setQuery(f"SELECT t.id_transaksi, m.nama_makanan, t.jumlah ,m.harga, p.nama_pembeli, k.nama_kasir, t.total_harga, t.discount FROM transaksi AS t, pembeli AS p, kasir AS k, makanan AS m WHERE t.id_pembeli = p.id_pembeli AND t.id_makanan = m.id_makanan AND t.id_kasir = k.id_kasir")
+    def refresh(self):
+        self.model = QSqlQueryModel()
+        self.model.setQuery(f"SELECT t.id_transaksi, m.nama_makanan, t.jumlah ,m.harga, p.nama_pembeli, k.nama_kasir, t.total_harga, t.discount FROM transaksi AS t, pembeli AS p, kasir AS k, makanan AS m WHERE t.id_pembeli = p.id_pembeli AND t.id_makanan = m.id_makanan AND t.id_kasir = k.id_kasir")
+
+
+  
+  
